@@ -143,7 +143,7 @@ __attribute__((objc_runtime_name("_TtC12VisionCamera10CameraView")))
 
     auto viewTag = arguments[0].asNumber();
     NSLog(@"FrameProcessorBindings: Adapting Shareable value from function (conversion to worklet)...");
-    auto worklet = reanimated::ShareableValue::adapt(runtime, arguments[1], runtimeManager.get());
+    // auto worklet = reanimated::ShareableValue::adapt(runtime, arguments[1], runtimeManager.get());
     NSLog(@"FrameProcessorBindings: Successfully created worklet!");
 
     RCTExecuteOnMainQueue([=]() {
@@ -155,9 +155,9 @@ __attribute__((objc_runtime_name("_TtC12VisionCamera10CameraView")))
         NSLog(@"FrameProcessorBindings: Converting worklet to Objective-C callback...");
 
         auto& rt = *runtimeManager->runtime;
-        auto function = worklet->getValue(rt).asObject(rt).asFunction(rt);
+        // auto function = worklet->getValue(rt).asObject(rt).asFunction(rt);
 
-        view.frameProcessorCallback = convertJSIFunctionToFrameProcessorCallback(rt, function);
+        // view.frameProcessorCallback = convertJSIFunctionToFrameProcessorCallback(rt, function);
         NSLog(@"FrameProcessorBindings: Frame processor set!");
       });
     });
